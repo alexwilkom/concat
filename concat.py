@@ -41,3 +41,11 @@ def numbered_lines(input, option):
         for i, line in enumerate(filter(None, text_array), start=1):
             print(f"{i} {line}")
             print()
+
+def main():
+    parser = argparse.ArgumentParser(description='Custom cat-like utility')
+    parser.add_argument('files', nargs='*', help='Files to process')
+    parser.add_argument('-n', '--number-lines', action='store_true', help='Number all output lines')
+    parser.add_argument('-b', '--number-nonblank', action='store_true', help='Number non-empty output lines')
+
+    args = parser.parse_args()
