@@ -23,7 +23,8 @@ def append_file(source_file, destination_file):
         content = read(source_file)
         with open(destination_file, 'a') as destination:
             destination.write(content)
-        print(f"Content from '{source_file}' appended to '{destination_file}' successfully.\n")
+        print(f"\nContent from '{source_file}' appended to '{destination_file}' successfully.\n")
+        print(read(destination_file))
     except FileNotFoundError:
         print("One or both of the files not found.")
     except Exception as e:
