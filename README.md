@@ -78,3 +78,4 @@ Run the script using the following commands:
 
     # Piping
     head -n5 file.txt | concat -n
+    ```
