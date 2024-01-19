@@ -12,14 +12,6 @@ def read(source_file):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-def print_file(source):
-    try:
-        print(read(source))
-    except FileNotFoundError:
-        print("File not found. Try checking the file path.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 def append_file(source_file, destination_file):
     try:
         content = read(source_file)
