@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import os
 import argparse
@@ -50,7 +51,7 @@ def main():
     parser.add_argument('-b', '--number-nonblank', action='store_true', help='Number non-empty output lines')
 
     args = parser.parse_args()
-    
+
     # Check if any data is being piped into stdin
     if not sys.stdin.isatty():
         stdin_text = sys.stdin.read()
