@@ -50,3 +50,26 @@ def main():
     parser.add_argument('-b', '--number-nonblank', action='store_true', help='Number non-empty output lines')
 
     args = parser.parse_args()
+    
+    # Check if any data is being piped into stdin
+    if not sys.stdin.isatty():
+        stdin_text = sys.stdin.read()
+        option = '-n' if args.number_lines else '-b' if args.number_nonblank else None
+        if option:
+            numbered_lines(stdin_text, option)
+        else:
+            print(stdin_text, end='')
+    else:
+        if args.number_lines or args.number_nonblank:
+            option = '-n' if args.number_lines else '-b'
+            for file in args.files:
+                numbered_lines(file, option)
+        elif len(args.files) == 1:
+            print(read(args.files[0]))
+        elif len(args.files) == 2:
+            append_file(args.files[0], args.files[1])
+        else:
+            parser.print_usage()
+        
+if __name__ == "__main__":
+    main()
