@@ -1,4 +1,6 @@
-# concat - Custom Cat-Like Tool
+# Concat
+
+## Description
 
 This Python utility mimics functionalities of the Unix `cat` command with additional features like displaying file contents, appending files, and numbering lines. It's designed for command line use in Unix-like environments.
 
